@@ -1,0 +1,72 @@
+# Web 2 - Astro Lab Day
+
+**Goal:** To learn how to use Astro Content Collections by building a content-based website.
+
+## Instructions
+
+1. Clone the repository to your local machine.
+2. Run `cd hilarious-horizon` to go inside the Astro project directory. Run `npm install` to install the node packages/dependencies required by Astro listed inside the `package.json` file.
+3. Run `npm run dev` to start the project.
+4. Set up your project pages:
+
+    - `home.astro`
+    - `about.astro`
+    - `projects/index.astro` - Projects listing page
+    - `projects/[slug].astro` - Individual project pages dynamic route
+    - `blog/index.astro` - Blog listing page
+    - `blog/[slug].astro` - Individual article pages dynamic route
+
+5. Create a directory called `data` inside the `/src` directory. Inside the data directory, create two directories for the content of your projects and blog. Make sure your content is in Markdown format:
+
+    - `src/data/projects/project-1.md`
+    - `src/data/projects/project-2.md`
+
+    - `src/data/blog/my-first-article.md`
+    - `src/data/blog/my-second-article.md`
+
+    Feel free to add more projects or blog articles. Use dummy content and check out the Markdown guide [https://www.markdownguide.org/basic-syntax/] to help you with the format. Also check out the Astro documentation on how to create the content [https://docs.astro.build/en/guides/content-collections/#defining-custom-ids]
+
+6. Add the properties to the top of your `.md` documents. Make sure the `slug` is unique for every file. This represents the URL or permalink of the content:
+
+    - title
+    - author
+    - slug
+
+    **Example:**
+
+    ```md
+    ---
+    title: My Awesome Project 1
+    author: Elmer Balbin
+    slug: my-awesome-project-1 <!-- This will appear as http://localhost:4321/projects/my-awesome-project-1 -->
+    ---
+
+    # Markdown content
+    ```
+
+7. Create a `content.config.js` inside your `src/` directory. This file is needed to define your collections. Add your collection loaders into the file. Make sure you point them to their respective directories:
+
+    ```js
+    import { defineCollection } from 'astro:content';
+    import { glob, file } from 'astro/loaders';
+
+    const blog = defineCollection({
+      loader: glob({ pattern: "**/*.md", base: "./src/data/blog" })
+    });
+
+    export const collections = { blog };
+    ```
+
+8. Add content to all your pages using dummy content. For the **projects** and **blog** landing pages, output their collection titles with a *"Read More"* link for each one that points to their dynamic route. Reference: [https://docs.astro.build/en/guides/content-collections/#using-content-in-astro-templates]
+
+9. The dynamic routes `[slug].astro` should show the Markdown content. Reference: [https://docs.astro.build/en/guides/content-collections/#building-for-static-output-default]
+
+10. Create a `Header.astro` and `Footer.astro` component. Add a menu to your header so that's easier to navigate your site.
+
+11. Add some styling but don't spend too much time on this. Just make your website look clean.
+
+12. Commit and push your changes once you are done.
+
+## ⚠️ Important Note
+
+Sometimes when you create or add a new collection, you may have to restart your Astro project. You can do `Ctrl+C` to stop the project, and run `npm run dev` to start it up again.
