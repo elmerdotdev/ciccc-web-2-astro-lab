@@ -20,11 +20,15 @@
 
     - `src/data/projects/project-1.md`
     - `src/data/projects/project-2.md`
+    - `src/data/projects/project-3.md`
 
     - `src/data/blog/my-first-article.md`
     - `src/data/blog/my-second-article.md`
+    - `src/data/blog/my-third-article.md`
 
     Feel free to add more projects or blog articles. Use dummy content and check out the Markdown guide [https://www.markdownguide.org/basic-syntax/] to help you with the format. Also check out the Astro documentation on how to create the content [https://docs.astro.build/en/guides/content-collections/#defining-custom-ids]
+
+    Take this opportunity to learn and play around with Markdown.
 
 6. Add the properties to the top of your `.md` documents. Make sure the `id` is unique for every file. Keep it the same as the filename for now:
 
@@ -59,9 +63,9 @@
 
 10. Create a `Header.astro` and `Footer.astro` component. Add a menu to your header so that's easier to navigate your site.
 
-11. Add some styling but don't spend too much time on this. Just make your website look clean... and responsive 🤨
+11. Create layout/s that you can wrap your pages in. Layouts should be added inside the `src/layouts` directory. In most cases, these should hold the structure of your website including the meta tags. Pass the `title` from each page as a prop to the layout file to use for the `<title></title>` head element.
 
-12. Commit and push your changes once you are done.
+12. Add some styling but don't spend too much time on this. Just make your website look clean... and responsive 🤨
 
 ### Reference:
 
