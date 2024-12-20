@@ -28,10 +28,6 @@
 
 6. Add the properties to the top of your `.md` documents. Make sure the `id` is unique for every file. Keep it the same as the filename for now:
 
-    - title
-    - author
-    - id
-
     **Example:**
 
     ```md
@@ -63,7 +59,7 @@
 
 10. Create a `Header.astro` and `Footer.astro` component. Add a menu to your header so that's easier to navigate your site.
 
-11. Add some styling but don't spend too much time on this. Just make your website look clean.
+11. Add some styling but don't spend too much time on this. Just make your website look clean... and responsive 🤨
 
 12. Commit and push your changes once you are done.
 
