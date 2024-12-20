@@ -61,17 +61,6 @@
 
 9. The dynamic routes `[id].astro` should show the Markdown content. Reference: [https://docs.astro.build/en/guides/content-collections/#building-for-static-output-default]
 
-    **Example:**
-    ```js
-    export async function getStaticPaths() {
-      const posts = await getCollection('blog');
-      return posts.map(post => ({
-        params: { id: post.id },
-        props: { post },
-      }));
-    }
-    ```
-
 10. Create a `Header.astro` and `Footer.astro` component. Add a menu to your header so that's easier to navigate your site.
 
 11. Add some styling but don't spend too much time on this. Just make your website look clean.
