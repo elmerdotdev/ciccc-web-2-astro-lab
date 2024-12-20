@@ -9,8 +9,8 @@
 3. Run `npm run dev` to start the project.
 4. Set up your project pages:
 
-    - `index.astro`
-    - `about.astro`
+    - `index.astro` - Home page
+    - `about.astro` - About page
     - `projects/index.astro` - Projects listing page
     - `projects/[id].astro` - Individual project pages dynamic route
     - `blog/index.astro` - Blog listing page
