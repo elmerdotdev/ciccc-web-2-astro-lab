@@ -12,9 +12,9 @@
     - `home.astro`
     - `about.astro`
     - `projects/index.astro` - Projects listing page
-    - `projects/[slug].astro` - Individual project pages dynamic route
+    - `projects/[id].astro` - Individual project pages dynamic route
     - `blog/index.astro` - Blog listing page
-    - `blog/[slug].astro` - Individual article pages dynamic route
+    - `blog/[id].astro` - Individual article pages dynamic route
 
 5. Create a directory called `data` inside the `/src` directory. Inside the data directory, create two directories for the content of your projects and blog. Make sure your content is in Markdown format:
 
@@ -26,11 +26,11 @@
 
     Feel free to add more projects or blog articles. Use dummy content and check out the Markdown guide [https://www.markdownguide.org/basic-syntax/] to help you with the format. Also check out the Astro documentation on how to create the content [https://docs.astro.build/en/guides/content-collections/#defining-custom-ids]
 
-6. Add the properties to the top of your `.md` documents. Make sure the `slug` is unique for every file. This represents the URL or permalink of the content:
+6. Add the properties to the top of your `.md` documents. Make sure the `id` is unique for every file. Keep it the same as the filename for now:
 
     - title
     - author
-    - slug
+    - id
 
     **Example:**
 
@@ -38,7 +38,7 @@
     ---
     title: My Awesome Project 1
     author: Elmer Balbin
-    slug: my-awesome-project-1 <!-- This will appear as http://localhost:4321/projects/my-awesome-project-1 -->
+    id: project-1 <!-- This will appear as http://localhost:4321/projects/project-1 -->
     ---
 
     # Markdown content
@@ -59,13 +59,28 @@
 
 8. Add content to all your pages using dummy content. For the **projects** and **blog** landing pages, output their collection titles with a *"Read More"* link for each one that points to their dynamic route. Reference: [https://docs.astro.build/en/guides/content-collections/#using-content-in-astro-templates]
 
-9. The dynamic routes `[slug].astro` should show the Markdown content. Reference: [https://docs.astro.build/en/guides/content-collections/#building-for-static-output-default]
+9. The dynamic routes `[id].astro` should show the Markdown content. Reference: [https://docs.astro.build/en/guides/content-collections/#building-for-static-output-default]
+
+    **Example:**
+    ```js
+    export async function getStaticPaths() {
+      const posts = await getCollection('blog');
+      return posts.map(post => ({
+        params: { id: post.id },
+        props: { post },
+      }));
+    }
+    ```
 
 10. Create a `Header.astro` and `Footer.astro` component. Add a menu to your header so that's easier to navigate your site.
 
 11. Add some styling but don't spend too much time on this. Just make your website look clean.
 
 12. Commit and push your changes once you are done.
+
+### Reference:
+
+- [https://github.com/elmerdotdev/ciccc-web-2-astro-5-part-2-code-along]
 
 ## ⚠️ Important Note
 
